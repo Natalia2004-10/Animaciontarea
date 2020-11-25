@@ -14,13 +14,15 @@ function cambiarColor(){
  let angle = 0;
  let dAngle = 5;
  let x2 = 0;
- let y2 = 449;
- let vY = 0.1;
- let vX = 1;
- let t1 = 0;
- let t2 = 0;
+ let x20= 0;
+ let y2 =0;
+ let y20 = 449;
+ let vY0 = -130;
+ let vX = 150;
+ let t = 0;
+ let a = 20;
 function mover(){
-    if(y<450){ 
+    if(y<450 ){ 
         x = x + dX;
         y = y + dY;
         angle = angle + dAngle;
@@ -31,18 +33,11 @@ function mover(){
         angle = angle + dAngle;
         movimiento.style.transform = `translate(${x}px, ${y}px) rotate(${angle}deg)`;
     }
-    if(y2   > 450){
-        t2 = 0;
-        y2 = 449;
-    }
-    else{ 
-    t1+= 0.1;
-    t2+= 0.1;
-    x2 = x2 + vX*t1;
-    y2 = y2 - (vY*-9.8*Math.pow(t2,2))/2;
+    t+= 0.1;
+    x2 = x20 + vX*t;
+    y2 = y20 + vY0*t + (a*Math.pow(t,2))/2;
     angle = angle + dAngle;
     obj2.style.transform = `translate(${x2}px, ${y2}px) rotate(${angle}deg)`;
-    }
 }
 
 let idMovimiento;
